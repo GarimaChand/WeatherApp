@@ -1,15 +1,12 @@
-package com.example.mainactivity.;
+package co.example.MainActivity;
 
 import android.os.AsyncTask;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 
 public class DownloadTask extends AsyncTask<String,Void,String> {
@@ -59,8 +56,8 @@ public class DownloadTask extends AsyncTask<String,Void,String> {
             // to give user the name and place where they are
             String placeName = jsonObject.getString("name");
 
-            com.example.mainactivity.MainActivity.temperatureTextView.setText(String.valueOf(temperatureInteger));
-            com.example.mainactivity.MainActivity.placeTextView.setText(placeName);
+            MainActivity.temperatureTextView.setText(String.valueOf(temperatureInteger));
+            MainActivity.placeTextView.setText(placeName);
         } catch (Exception e) {
             e.printStackTrace();
         }

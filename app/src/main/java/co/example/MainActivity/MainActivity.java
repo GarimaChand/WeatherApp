@@ -1,4 +1,4 @@
-package com.example.mainactivity;
+package co.example.MainActivity;
 
 import android.Manifest;
 import android.content.Context;
@@ -22,10 +22,13 @@ import com.example.mainactivity.R;
 
 import org.w3c.dom.Text;
 
+import java.util.concurrent.ForkJoinPool;
+
 public class MainActivity extends AppCompatActivity {
 
     static TextView placeTextView;
     static TextView temperatureTextView;
+   
 
 
     @Override
@@ -60,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
         //get longitude
         Double lng = location.getLongitude();
 
-        com.example.mainactivity.DownloadTask task = new com.example.mainactivity.DownloadTask();
+       // com.example.mainactivity.DownloadTask = new com.example.mainactivity.DownloadTask();
         // give latitude and longitude
-        task.execute("https://samples.openweathermap.org/data/2.5/weather?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lng)+" &appid=c9f3c2baddf39b53b0a40d262866dfcc");
+       // task.execute("https://samples.openweathermap.org/data/2.5/weather?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lng)+" &appid=c9f3c2baddf39b53b0a40d262866dfcc");
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
