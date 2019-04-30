@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.LocaleList;
 import android.support.design.widget.FloatingActionButton;
@@ -26,9 +27,9 @@ import java.util.concurrent.ForkJoinPool;
 
 public class MainActivity extends AppCompatActivity {
 
-    static TextView placeTextView;
-    static TextView temperatureTextView;
-   
+   public  static TextView placeTextView;
+    public static TextView temperatureTextView;
+
 
 
     @Override
@@ -63,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
         //get longitude
         Double lng = location.getLongitude();
 
-       // com.example.mainactivity.DownloadTask = new com.example.mainactivity.DownloadTask();
-        // give latitude and longitude
-       // task.execute("https://samples.openweathermap.org/data/2.5/weather?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lng)+" &appid=c9f3c2baddf39b53b0a40d262866dfcc");
+        DownloadTask task = new DownloadTask();
+        AsyncTask<String, Void, String> execute = task.execute("https://samples.openweathermap.org/data/2.5/weather?lat=%s&lon=%s &appid=c9f3c2baddf39b53b0a40d262866dfcc", String.valueOf(lat), String.valueOf(lng));
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
